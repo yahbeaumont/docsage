@@ -1,0 +1,36 @@
+name: regression
+
+on:
+  schedule: [{ cron: "0 6 * * 1" }]
+  workflow_dispatch:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  gate:
+    if: github.event_name != 'pull_request' || github.event.label.name == 'run-eval'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip }
+      - run: pip install -e ".[dev]"
+      - name: serviços
+        run: docker compose up -d qdrant
+      - name: reproduzir e comparar
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          QDRANT_URL: http://localhost:6333
+        run: make corpus index
+      - name: A/B pareado
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          QDRANT_URL: http://localhost:6333
+        run: make ab
+        continue-on-error: true
+      - name: veredito
+        run: python -m docsage.eval.gate --verdict eval-out/ab.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: regression-report, path: eval-out/ }

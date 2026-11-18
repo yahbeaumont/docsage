@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# corpus clonado e índice local: regeneráveis com `make corpus` e `make index`
+data/corpus/
+data/qdrant_local/
+.bm25/
+
+# resultados de execução local; os números publicados vivem em docs/RESULTS.md
+eval-out/
+
+# limiar calibrado em cada máquina (o exemplo fica versionado)
+configs/calibrated.env
+configs/calibrated.json
