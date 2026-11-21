@@ -1,0 +1,15 @@
+k: 10
+folds: 5
+min_precision: 0.60
+seed: 1337
+gate_tolerance: 0.03
+gate_metrics:
+  - recall_at_k
+  - ndcg_at_k
+  - mrr
+  - context_precision
+  - context_recall
+  - faithfulness
+  - answer_relevance
+  - citation_validity
+  - abstention_accuracy
