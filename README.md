@@ -29,7 +29,9 @@ corpus). Medição de `2026-11-25`, commit `5f1c625`.
 | latência p50 / p95 | 5,3 s / 10,8 s | 4,0 s / 63,4 s |
 | custo por pergunta | US$ 0,00100 | US$ 0,00056 |
 
-Custo total das duas execuções (eval + baseline): US$ 0,08.
+Custo total das duas execuções (eval + baseline): US$ 0,08. As três execuções brutas estão
+versionadas em `eval-out/` (`current.json`, `baseline.json`, `ab.json`), então qualquer número
+acima pode ser conferido contra o JSON que o produziu.
 
 ![Comparação de métricas entre baseline e docsage](docs/img/metrics-comparison.png)
 
