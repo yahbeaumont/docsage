@@ -12,7 +12,7 @@ melhorou?".
 Corpus: documentação do FastAPI `0.165.0` (`155` documentos,
 `2039` chunks, sha256 `1eea3e8336027b40…`). Golden set: `60` perguntas
 (`30` factuais, `20` multi-hop, `10` sem resposta no
-corpus). Medição de `2026-11-25`, commit `n/d`.
+corpus). Medição de `2026-11-25`, commit `5f1c625`.
 
 | Métrica | Baseline (vetorial puro, sem rerank) | docsage (híbrido + rerank) |
 |---|---|---|
