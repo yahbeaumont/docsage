@@ -93,6 +93,11 @@ def plot_forest(ab: dict, out: Path) -> None:
         ax.text(m["ci_high"], i + 0.22,
                 f" Δ={m['delta']:+.3f} p={m['p_adjusted']:.3f} {m['decision']}",
                 fontsize=11, color=color, va="center")
+    if metrics:
+        lo = min(m["ci_low"] for m in metrics)
+        hi = max(m["ci_high"] for m in metrics)
+        span = hi - lo
+        ax.set_xlim(lo - span * 0.04, hi + span * 0.24)
     ax.set_yticks(range(len(metrics)))
     ax.set_yticklabels([labels.get(m["metric"], m["metric"]) for m in metrics], fontsize=13)
     ax.set_xlabel("Δ da métrica (híbrido − baseline), IC95 bootstrap pareado", fontsize=14)
@@ -125,14 +130,15 @@ def plot_latency(current: dict, baseline: dict, out: Path) -> None:
     for i, (a, b, c) in enumerate(zip(p50, p95, cost, strict=True)):
         axes[1].text(i - 0.2, a, f"{a:.1f}s", ha="center", va="bottom", fontsize=12)
         axes[1].text(i + 0.2, b, f"{b:.1f}s", ha="center", va="bottom", fontsize=12)
-        axes[1].text(i, -0.9, f"US$ {c:.2f}/item", ha="center", fontsize=12)
+        axes[1].text(i, max(p95) * 1.06,
+                     f"US$ {c:.2f}/item".replace(".", ","), ha="center", fontsize=12)
     axes[1].set_xticks(list(x))
     axes[1].set_xticklabels([a.capitalize() for a in arms], fontsize=13)
     axes[1].set_ylabel("Segundos", fontsize=13)
     axes[1].set_title("Cauda de latência e custo por item", fontsize=15)
     axes[1].legend(fontsize=12)
     axes[1].grid(axis="y", alpha=0.3)
-    axes[1].margins(y=0.15)
+    axes[1].margins(y=0.22)
     _save(fig, out, "latency-and-cost.png")
 
 

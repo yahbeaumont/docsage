@@ -1,0 +1,48 @@
+{
+  "metrics": {
+    "n": 60,
+    "n_errors": 0,
+    "error_ids": [],
+    "n_answerable": 50,
+    "n_unanswerable": 10,
+    "recall_at_k": 0.51,
+    "ndcg_at_k": 0.34348334244227735,
+    "mrr": 0.3024047619047619,
+    "context_precision": 0.355,
+    "context_recall": 0.6716666666666667,
+    "faithfulness": 0.7315992618492618,
+    "answer_relevance": 0.4541349551578363,
+    "citation_validity": 1.0,
+    "abstention_accuracy": 0.3,
+    "false_abstention_rate": 0.06,
+    "latency_p50_ms": 4025.0,
+    "latency_p95_ms": 63368.0,
+    "cost_usd_total": 0.02809875,
+    "cost_usd_per_item": 0.0005619749999999999
+  },
+  "_meta": {
+    "chat_model": "gpt-5-mini",
+    "judge_model": "gemini-3-flash-preview",
+    "embed_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "rerank_model": "BAAI/bge-reranker-v2-m3",
+    "retrieval_mode": "hybrid",
+    "rerank_enabled": true,
+    "top_k_dense": 50,
+    "top_k_sparse": 50,
+    "top_k_fused": 20,
+    "top_k_rerank": 8,
+    "rrf_k": 60,
+    "abstain_threshold": 0.4705,
+    "python": "3.12.3",
+    "cpu_count": 6,
+    "machine": "aarch64",
+    "date": "2026-11-25T15:37:33.295876+00:00",
+    "promoted_from": "eval-out/current.json"
+  },
+  "noise_std": {
+    "recall_at_k": 0.007,
+    "faithfulness": 0.011,
+    "answer_relevance": 0.014,
+    "citation_validity": 0.008
+  }
+}
