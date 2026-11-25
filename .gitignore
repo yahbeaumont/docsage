@@ -14,7 +14,14 @@ data/qdrant_local/
 .bm25/
 
 # resultados de execução local; os números publicados vivem em docs/RESULTS.md
-eval-out/
+# as três execuções citadas no README ficam versionadas como evidência
+eval-out/*
+!eval-out/current.json
+!eval-out/baseline.json
+!eval-out/ab.json
+!eval-out/current.md
+!eval-out/baseline.md
+!eval-out/ab.md
 
 # limiar calibrado em cada máquina (o exemplo fica versionado)
 configs/calibrated.env
