@@ -96,7 +96,7 @@ flowchart LR
 
 O limiar de cosseno é aprendido, não escolhido no olho: validação cruzada de 5 folds sobre as
 `10` perguntas sem resposta mais uma amostra de respondíveis, maximizando
-acurácia balanceada. Limiar calibrado: **0,470**.
+acurácia balanceada. Limiar calibrado: **0,4705**.
 
 Uma nota de implementação que custou caro: a primeira versão usava o logit do cross-encoder
 como sinal de abstenção. Ele é degenerado para chunks fora de distribuição (todo chunk

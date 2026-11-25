@@ -101,7 +101,7 @@ flowchart LR
 
 The cosine threshold is learned, not eyeballed: 5-fold cross-validation over the `10` unanswerable
 questions plus a sample of answerable ones, maximizing balanced accuracy. Calibrated threshold:
-**0.470**.
+**0.4705**.
 
 One implementation note that cost real time: the first version used the cross-encoder logit as the
 abstention signal. It is degenerate for out-of-distribution chunks (every irrelevant chunk gets a
