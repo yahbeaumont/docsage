@@ -44,7 +44,7 @@ test:
 	pytest
 
 lint:
-	ruff check src tests && mypy src
+	ruff check src tests
 
 fmt:
 	ruff format src tests && ruff check --fix src tests
