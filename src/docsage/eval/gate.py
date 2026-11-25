@@ -25,12 +25,17 @@ def check(baseline: dict, current: dict, tolerance: float) -> list[dict]:
     noise = baseline.get("noise_std", {})
 
     for metric, base_value in baseline["metrics"].items():
+        # métricas não numéricas (error_ids, por exemplo) não têm ordem para regredir
+        if isinstance(base_value, bool) or not isinstance(base_value, (int, float)):
+            continue
         if metric not in current["metrics"]:
             failures.append({"metric": metric, "reason": "ausente na execução atual",
                              "base": base_value, "current": None, "delta": None})
             continue
 
         value = current["metrics"][metric]
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            continue
         delta = value - base_value
         limit = allowed_drop(metric, tolerance, noise)
         if delta < -limit:
@@ -88,6 +93,10 @@ def main(
     for metric, value in run["metrics"].items():
         base_value = base["metrics"].get(metric)
         if base_value is None:
+            continue
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            continue
+        if isinstance(base_value, bool) or not isinstance(base_value, (int, float)):
             continue
         delta = value - base_value
         color = "green" if delta >= 0 else ("yellow" if delta >= -tolerance else "red")

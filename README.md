@@ -35,6 +35,7 @@ acima pode ser conferido contra o JSON que o produziu.
 
 ![Comparação de métricas entre baseline e docsage](docs/img/metrics-comparison.png)
 
+![Latência por item e custo por pergunta nos dois braços](docs/img/latency-and-cost.png)
 ![Curva de calibração do limiar de abstenção](docs/img/calibration-curve.png)
 
 ![Intervalos de confiança do A/B pareado por métrica](docs/img/ab-forest.png)
