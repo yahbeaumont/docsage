@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="docsage: RAG over the FastAPI documentation measured by a 60-question evaluation set, with calibrated abstention and a paired A/B whose verdict is inconclusive">
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1A1F26" stroke-width="1"/>
+    </pattern>
+    <style>
+      .mono { font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace; }
+      .word { font-size: 88px; font-weight: 700; fill: #F2F5F7; letter-spacing: -2px; }
+      .kick { font-size: 12px; fill: #5C6771; }
+      .sub { font-size: 17px; fill: #8B959F; }
+      .card-title { font-size: 12px; fill: #5C6771; }
+      .label { font-size: 13px; fill: #8B959F; }
+      .value { font-size: 19px; font-weight: 700; fill: #F2F5F7; }
+      .delta { font-size: 13px; }
+      .foot { font-size: 12px; fill: #5C6771; }
+      .chip { font-size: 11px; fill: #C9D2DA; }
+      .teal { fill: #6FE3B0; }
+      .amber { fill: #F0B357; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="640" fill="#0B0D10"/>
+  <rect width="1280" height="640" fill="url(#grid)" opacity="0.55"/>
+
+  <text class="mono kick" x="80" y="212" letter-spacing="1.5">PYTHON · QDRANT · BM25 · RERANK · LLM JUDGE</text>
+  <text class="mono word" x="80" y="292">docsage</text>
+  <rect x="80" y="322" width="300" height="3" fill="#6FE3B0"/>
+  <text class="mono sub" x="80" y="372">RAG over the FastAPI docs, with a 60-question</text>
+  <text class="mono sub" x="80" y="400">eval set, calibrated abstention and a paired A/B.</text>
+  <text class="mono foot" x="80" y="452">2,039 chunks · 155 documents · 5-fold threshold 0.4705</text>
+
+  <rect x="660" y="120" width="540" height="404" rx="10" fill="#0F1318" stroke="#232B34" stroke-width="1"/>
+  <text class="mono card-title" x="692" y="158" letter-spacing="0.6">MEASURED 2026-11-25 · 60 QUESTIONS · 50 PAIRS</text>
+  <path d="M692 176 H1168" stroke="#232B34" stroke-width="1"/>
+
+  <text class="mono label" x="692" y="216">recall@10</text>
+  <text class="mono value" x="850" y="216">0.510</text>
+  <text class="mono delta amber" x="960" y="216">Δ -0.080</text>
+
+  <text class="mono label" x="692" y="260">nDCG@10</text>
+  <text class="mono value" x="850" y="260">0.343</text>
+  <text class="mono delta amber" x="960" y="260">Δ -0.036</text>
+
+  <text class="mono label" x="692" y="304">faithfulness</text>
+  <text class="mono value" x="850" y="304">0.732</text>
+  <text class="mono delta amber" x="960" y="304">Δ +0.014</text>
+
+  <text class="mono label" x="692" y="348">abstention</text>
+  <text class="mono value" x="850" y="348">0.300</text>
+  <text class="mono delta teal" x="960" y="348">Δ +0.300</text>
+
+  <path d="M692 372 H1168" stroke="#232B34" stroke-width="1"/>
+  <text class="mono" x="692" y="404" font-size="15" fill="#F0B357">verdict: inconclusive</text>
+  <text class="mono foot" x="692" y="428">p95 63.4 s · US$ 0.00056 per query · 0 errors</text>
+
+  <g class="mono chip">
+    <rect x="692" y="462" width="86" height="30" rx="6" fill="#141A20" stroke="#232B34"/>
+    <text x="706" y="481">dense 50</text>
+    <text x="786" y="481" fill="#5C6771">→</text>
+    <rect x="804" y="462" width="78" height="30" rx="6" fill="#141A20" stroke="#232B34"/>
+    <text x="818" y="481">bm25 50</text>
+    <text x="890" y="481" fill="#5C6771">→</text>
+    <rect x="908" y="462" width="60" height="30" rx="6" fill="#141A20" stroke="#232B34"/>
+    <text x="922" y="481">rrf 60</text>
+    <text x="976" y="481" fill="#5C6771">→</text>
+    <rect x="994" y="462" width="80" height="30" rx="6" fill="#141A20" stroke="#232B34"/>
+    <text x="1008" y="481">rerank 8</text>
+    <text x="1082" y="481" fill="#5C6771">→</text>
+    <rect x="1100" y="462" width="68" height="30" rx="6" fill="#141A20" stroke="#6FE3B0"/>
+    <text x="1114" y="481" class="teal">cite</text>
+  </g>
+</svg>

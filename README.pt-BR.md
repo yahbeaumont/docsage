@@ -1,5 +1,7 @@
 # docsage
 
+<img src="docs/banner.png" alt="docsage: RAG sobre a documentação do FastAPI, medido por um conjunto de avaliação de 60 perguntas, com abstenção calibrada e um A/B pareado cujo veredito é inconclusivo" width="100%">
+
 RAG sobre a documentação do FastAPI, com o que quase nunca vem junto: **conjunto de avaliação
 com 60 perguntas rotuladas, juiz calibrado, abstenção com limiar aprendido e um A/B pareado com
 bootstrap que roda no CI**.
